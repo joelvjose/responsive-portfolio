@@ -155,6 +155,33 @@ function scrollActive() {
   });
 }
 window.addEventListener("scroll", scrollActive);
+// ===================== FORM VALIDATION =========================
+function validateForm() {
+  let x = document.forms["myForm"]["name"].value;
+  if (x == "") {
+    alert("Name cannot be empty!");
+    return false;
+  }
+  
+}
+
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
+
+// add event to all form input field
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].addEventListener("input", function () {
+
+    // check form validation
+    if (form.checkValidity()) {
+      form-btn.removeAttribute("disabled");
+    } else {
+      form-btn.setAttribute("disabled", "");
+    }
+
+  });
+}
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
